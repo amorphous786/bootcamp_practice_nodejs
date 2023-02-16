@@ -68,6 +68,17 @@ app.delete('/book/:id',(req,res)=>{
 
 
 })
+
+app.delete('/book/:name',(req,res)=>{
+
+      const title = req.params.title;
+      books = books.filter((book)=>{book.title != title});
+      res.send(books);
+
+
+
+
+})
 const port = 4000
 app.listen(port, () => {
       console.log(`Example app listening on port http://localhost:${port}!`);
