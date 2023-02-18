@@ -45,7 +45,7 @@ app.post('/books',(req,res)=>
             const book = req.body;
             book.id = books.length + 1;
             books.push(book);
-            res.send(book);
+            res.send(books);
       }
 );
 
@@ -58,21 +58,12 @@ app.put('/book/:id',(req,res)=>{
       res.send(book);
 });
 
+
+
 app.delete('/book/:id',(req,res)=>{
 
-      const id = req.params.id;
-      books = books.filter((book)=>{book.id != id});
-      res.send(books);
-
-
-
-
-})
-
-app.delete('/book/:name',(req,res)=>{
-
-      const title = req.params.title;
-      books = books.filter((book)=>{book.title != title});
+      const id = parseInt(req.params.id);
+      books = books.filter((book)=> book.id != id);
       res.send(books);
 
 
